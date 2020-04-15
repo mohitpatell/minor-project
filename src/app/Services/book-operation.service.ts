@@ -55,4 +55,28 @@ export class BookOperationService {
    getDepartmentBook(data){
     return this.http.post<{status:string,books:any}>('https://minor-api.herokuapp.com/category-book',data);
    }
+
+   getBookComputer() {
+    return this.http.get<{status:string,books:any}>('https://minor-api.herokuapp.com/category-book-computer');
+   }
+
+   getBookMechinical() {
+    return this.http.get<{status:string,books:any}>('https://minor-api.herokuapp.com/category-book-mechinical');
+   }
+
+   getBookCivil() {
+    return this.http.get<{status:string,books:any}>('https://minor-api.herokuapp.com/category-book-civil');
+   }
+
+   getBookElectrical() {
+    return this.http.get<{status:string,books:any}>('https://minor-api.herokuapp.com/category-book-electrical');
+   }
+
+   getBookIT() {
+    return this.http.get<{status:string,books:any}>('https://minor-api.herokuapp.com/category-book-it');
+   }
+
+   getBookOther() {
+    return this.http.get<{status:string,books:any}>('https://minor-api.herokuapp.com/category-book-other');
+   }
 }
