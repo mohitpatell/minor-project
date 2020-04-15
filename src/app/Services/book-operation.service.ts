@@ -19,6 +19,7 @@ export class BookOperationService {
     bookdata.append('desc',data.desc);
     bookdata.append('image',data.image1);
     bookdata.append('image',data.image2);
+    console.log
     this.http.post('https://minor-api.herokuapp.com/addbook',bookdata)
     .subscribe(result=> {
       console.log(result);
