@@ -1,0 +1,78 @@
+
+	<div class="container-contact100">
+		<div class="wrap-contact100">
+			<form class="contact100-form validate-form" (submit)="addbook()" [formGroup]="form">
+				<span class="contact100-form-title">
+					ADD BOOK
+				</span>
+
+        <div class="wrap-input100 validate-input bg1" data-validate="Please Type Your Name">
+					<span class="label-input100">BOOK NAME *</span>
+					<input formControlName="bookname" class="input100" type="text" name="name" placeholder="Enter Your Name">
+        </div>
+
+				<div class="wrap-input100 validate-input bg1 rs1-wrap-input100" data-validate = "Enter Your Email (e@a.x)">
+					<span class="label-input100">FULL NAME *</span>
+					<input formControlName="username" class="input100" type="text" name="email" placeholder="Enter Your Name ">
+				</div>
+
+				<div class="wrap-input100 bg1 rs1-wrap-input100">
+					<span class="label-input100">Phone *</span>
+					<input formControlName="number" class="input100" type="number" name="phone" placeholder="Enter Number Phone">
+				</div>
+
+				<div class="wrap-input100 input100-select bg1" style="width: 50%;">
+					<span class="label-input100">Department *</span>
+					<div>
+						<select formControlName="department" class="js-select2" name="service">
+							<option>Select</option>
+							<option>Computer Science</option>
+							<option>Mechinical</option>
+							<option>Civil</option>
+              <option>Electrical</option>
+              <option>IT</option>
+              <option>Other</option>
+						</select>
+						<div class="dropDownSelect2"></div>
+					</div>
+        </div>
+
+        <div class="wrap-input100 bg1 rs1-wrap-input100">
+					<span class="label-input100">Price *</span>
+					<input formControlName="price" class="input100" type="number" name="phone" placeholder="Enter Price">
+				</div>
+
+				<div class="wrap-input100 validate-input bg0 rs1-alert-validate" data-validate = "Please Type Your Message">
+					<span class="label-input100">Description</span>
+          <textarea formControlName="desc" class="input100" name="message" placeholder="Your description here..."></textarea>
+        </div>
+
+
+        <div style="text-align: center" class="wrap-input100 bg1 rs1-wrap-input100" >
+            <div style="margin-bottom: 20px;" *ngIf="imagepreview1!='' && imagepreview1">
+                <img style="width: 120px;"  [src]="imagepreview1">
+              </div>
+          <button type="button" class="btn btn-outline-dark" (click)="image1.click()">Image 1</button>
+        </div>
+
+        <div style="text-align: center" class="wrap-input100 bg1 rs1-wrap-input100" >
+            <div style="margin-bottom: 20px;" *ngIf="imagepreview2!='' && imagepreview2">
+                <img style="width: 120px;"  [src]="imagepreview2">
+              </div>
+          <button type="button" class="btn btn-outline-dark" (click)="image2.click()">Image 2</button>
+        </div>
+
+         <input style="display: none" type="file" #image1 (change)="imagePick1($event)">
+          <input style="display: none" type="file" #image2 (change)="imagePick2($event)">
+
+				<div class="container-contact100-form-btn">
+					<button type="submit" class="contact100-form-btn">
+						<span>
+							Submit
+							<i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
+						</span>
+					</button>
+				</div>
+			</form>
+		</div>
+	</div>
