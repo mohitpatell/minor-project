@@ -52,10 +52,10 @@ export class AddBookComponent implements OnInit {
   }
 
   addbook(){
-    // this.form.patchValue({
-    //   username: this.auth
-    // })
+    this.form.patchValue({
+      username: this.auth
+    })
     console.log(this.form.value);
-    // this.book_operation.addBook(this.form.value);
+    this.book_operation.addBook(this.form.value);
   }
 }
