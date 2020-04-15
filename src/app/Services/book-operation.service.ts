@@ -53,6 +53,6 @@ export class BookOperationService {
    }
 
    getDepartmentBook(data){
-    return this.http.post<{status:string,books:any}>('http://localhost:3000/category-book',data);
+    return this.http.post<{status:string,books:any}>('https://minor-api.herokuapp.com/category-book',data);
    }
 }
