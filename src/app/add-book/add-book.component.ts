@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormGroup, FormControl, Validators} from '@angular/forms';
 import { BookOperationService } from '../Services/book-operation.service';
 import { AuthService } from '../Services/auth.service';
+import { ModalFunctions } from '../common/modal-functions';
 
 @Component({
   selector: 'app-add-book',
@@ -12,7 +13,8 @@ export class AddBookComponent implements OnInit {
 
   public imagepreview1;
   public imagepreview2;
-  constructor(public book_operation:BookOperationService, public auth:AuthService) { }
+  public submitted:Boolean = false;
+  constructor(public book_operation:BookOperationService, public auth:AuthService, public modal: ModalFunctions) { }
 
   public form: FormGroup;
   ngOnInit() {
@@ -52,10 +54,18 @@ export class AddBookComponent implements OnInit {
   }
 
   addbook(){
+    this.submitted = true;
     this.form.patchValue({
       username: this.auth.username
     })
     console.log(this.form.value);
-    this.book_operation.addBook(this.form.value);
+    this.book_operation.addBook(this.form.value)
+    .subscribe(result=> {
+      console.log(result);
+    alert("Book Added Successfully");
+    this.modal.openModal('#modal1');
+    this.submitted=true;
+    this.form.reset();
+    })
   }
 }

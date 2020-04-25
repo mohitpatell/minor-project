@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { BookOperationService } from '../Services/book-operation.service';
 import { AuthService } from '../Services/auth.service';
 import { CommonService } from '../Services/common.service';
+declare var $:any;
 
 @Component({
   selector: 'app-shop-list',
@@ -19,6 +20,8 @@ export class ShopListComponent implements OnInit {
       console.log(result);
       this.all_books=result.books;
       console.log('typee',this.all_books);
+      document.querySelector('.loader-custom')['style'].display = "none";
+
     })
     // this.all_books=this.book_Operation.all_books_list;
   }
@@ -60,18 +63,25 @@ export class ShopListComponent implements OnInit {
 }
 
 categoryBooks(dept) {
+  this.all_books = [];
+      document.querySelector('.loader-custom')['style'].display = "flex";
+
   this.book_Operation.getDepartmentBook({department:dept})
   .subscribe(result=> {
     console.log(result)
     this.all_books=result.books;
+   document.querySelector('.loader-custom')['style'].display = "none";
   })
 }
 
 allbooks() {
+  this.all_books = [];
+  document.querySelector('.loader-custom')['style'].display = "flex";
   this.book_Operation.listbooks()
   .subscribe(result=> {
     console.log(result);
     this.all_books=result.books;
+    document.querySelector('.loader-custom')['style'].display = "none";
   })
 }
 

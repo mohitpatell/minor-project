@@ -29,13 +29,18 @@
                       </div>
                   </div>
               </div>
-          </div>
+            </div>
       </div>
       <!-- End Bradcaump area -->
       <!-- cart-main-area start -->
-
+      <div class="container">
       <div>
-      <div class="cart-main-area section-padding--lg bg--white">
+        <div *ngIf="!itemlist?.length" class="no-data">
+          <img src="assets/images/shopping-cart.svg" />
+       Cart is Empty
+    </div>
+      <!-- cart-main-area end -->
+      <div class="cart-main-area section-padding--lg bg--white" *ngIf="itemlist?.length">
           <div class="container">
               <div class="row">
                   <div class="col-md-12 col-sm-12 ol-lg-12">
@@ -82,4 +87,5 @@
     </div> -->
       <!-- cart-main-area end -->
 
+</div>
 </div>

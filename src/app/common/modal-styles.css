@@ -1,0 +1,112 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.658);
+  height: 100vh;
+  width: 100%;
+  z-index: 1000;
+  -webkit-animation: fade_in forwards 0.2s forwards ease-in;
+          animation: fade_in forwards 0.2s forwards ease-in;
+  display: none;
+}
+
+@-webkit-keyframes fade_in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fade_in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.modal-content {
+  -webkit-animation: appear 0.3s forwards cubic-bezier(0.455, 0.03, 0.515, 0.955);
+          animation: appear 0.3s forwards cubic-bezier(0.455, 0.03, 0.515, 0.955);
+}
+
+.modal.show .modal-dialog {
+  -webkit-transform: none;
+  transform: none;
+  width: 100%;
+  min-height: 90vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  z-index: 2000;
+  position: relative;
+}
+
+.modal button {
+  color: #000;
+  border-color: #000;
+  background: transparent;
+  font-weight: bold;
+  padding: 1rem;
+  width: 80%;
+  margin: 2rem auto;
+  border-block: 2px solid #000;
+}
+
+.modal-head button {
+  margin: 0;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  width: 50px;
+}
+
+.modal-body {
+  text-align: center;
+}
+
+.modal-body h2 {
+  text-align: center;
+  color: #000;
+  font-size: 1.5rem;
+  letter-spacing: -0.5px;
+  padding: 5px;
+  margin: 0;
+}
+
+.modal-body img {
+  width: 65%;
+  margin: 2rem auto;
+}
+
+@-webkit-keyframes appear {
+  0% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+@keyframes appear {
+  0% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+/*# sourceMappingURL=modal-styles.css.map */
