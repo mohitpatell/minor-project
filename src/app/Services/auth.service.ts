@@ -46,6 +46,7 @@ export class AuthService {
     this.http.post<{token: any, msg: string, username: string}>('https://minor-api.herokuapp.com/login',logindata)
     .subscribe(result =>{
       console.log(result);
+      // if(result.msg != 'Login Successfully') return alert ("Invalid Credintial");
       this.token=result.token;
       if(this.token){
         this.loginstatus= true;

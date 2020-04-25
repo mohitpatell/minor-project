@@ -66,6 +66,7 @@ export class AddBookComponent implements OnInit {
     }
     this.book_operation.addBook(this.form.value).subscribe((result) => {
       console.log(result);
+      this.modal.hideBtnLoader();
       this.modal.openModal("#modal1");
       this.submitted = true;
       this.form.reset();

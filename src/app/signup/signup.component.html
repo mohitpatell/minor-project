@@ -8,43 +8,129 @@
                   <h2 class="form-title">Create account</h2>
                   <div class="form-group">
                       <input formControlName="name" type="text" class="form-input" name="name" id="name" placeholder="Your Name"/>
-                      <p style="color: red; font-weight: 500" *ngIf="signupform.get('name').invalid && submited">Please Enter the Name</p>
+                      <div class="val-text" *ngIf="signupform.get('name').invalid && submited">
+                        Please Enter Your Name!
+                      </div>
                   </div>
                   <div class="form-group">
                       <input formControlName="email" type="email" class="form-input" name="email" id="email" placeholder="Your Email"/>
-                      <p style="color: red; font-weight: 500" *ngIf="signupform.get('email').invalid && submited">Please Enter a Valid Email</p>
+                      <div class="val-text" *ngIf="signupform.get('email').invalid && submited">
+                        Please Enter a Valid Email!
+                      </div>
                   </div>
                   <div class="form-group">
                     <input formControlName="username" type="text" class="form-input" name="name" id="name" placeholder="Enter Username"/>
-                    <p style="color: red; font-weight: 500" *ngIf="signupform.get('username').invalid && submited">Please Enter the Userame</p>
+                    <div class="val-text" *ngIf="signupform.get('username').invalid && submited">
+                      Please Enter the Username!
+                    </div>
                 </div>
                 <div class="form-group">
                   <input formControlName="contact_number" type="number" class="form-input" name="name" id="name" placeholder="Your Number"/>
-                  <p style="color: red; font-weight: 500" *ngIf="signupform.get('contact_number').invalid && submited">Please Enter your Contact No.</p>
+                  <div class="val-text" *ngIf="signupform.get('contact_number').invalid && submited">
+                    Please Enter your Contact No.!
+                  </div>
               </div>
               <div class="form-group">
               <label>Male</label>  <input style="width: auto" formControlName="gender" name="gender" type="radio" class="form-input" value="male" />
               <label>Female</label>  <input style="width: auto" formControlName="gender" name="gender" type="radio" class="form-input" value="female"/>
               <label>Other</label>  <input style="width: auto" formControlName="gender" name="gender" type="radio" class="form-input" value="other" />
-              <p style="color: red; font-weight: 500" *ngIf="signupform.get('gender').invalid && submited">Please Select Gender</p>
+              <div class="val-text" *ngIf="signupform.get('gender').invalid && submited">
+                Please Select Gender!
+              </div>
             </div>
                   <div class="form-group">
                       <input formControlName="password" type="password" class="form-input" name="password" id="password" placeholder="Password"/>
-              <p style="color: red; font-weight: 500" *ngIf="signupform.get('password').invalid && submited">Please Enter Password</p>
+                      <div class="val-text" *ngIf="signupform.get('password').invalid && submited">
+                        Please Enter Password!
+                      </div>
                   </div>
                   <div class="form-group">
                       <input formControlName="cpassword" type="password" class="form-input" name="re_password" id="re_password" placeholder="Repeat your password"/>
-              <p style="color: red; font-weight: 500" *ngIf="signupform.get('cpassword').invalid && submited">Please Enter Password</p>
+                      <div class="val-text" *ngIf="signupform.get('cpassword').invalid && submited">
+                        Please Enter Password!
+                      </div>
                   </div>
                   <div class="form-group">
-                      <input type="submit" name="submit" id="submit" class="form-submit" value="Sign up"/>
+                      <button (click)="modal.showBtnLoader()" type="submit" name="submit" id="submit" class="form-submit" value="Sign up">
+                        <span class="btn-loading-content">
+                          <i class="fa fa-circle-o-notch fa-spin"></i> Please Wait...
+                        </span>
+                        <span class="btn-default-content">
+                          Signup
+                        </span>
+                      </button>
                   </div>
               </form>
               <p class="loginhere">
-                  Have already an account ? <a routerLink="['/login']" class="loginhere-link">Login here</a>
+                  Have already an account ? <a [routerLink]="['/login']" class="loginhere-link">Login here</a>
               </p>
           </div>
       </div>
   </section>
 
+</div>
+
+
+<!-- First Signup Modal -->
+<div class="modal modal-animate" id="signup" role="dialog" #signup>
+  <div class="modal-dialog modal-md">
+    <div class="modal-content">
+      <div class="modal-head">
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          (click)="modal.closeModal(signup)"
+        >
+          &times;
+        </button>
+      </div>
+      <div class="modal-body">
+
+        <h2>
+          An Email has been send to you please verify your mail to login.
+        </h2>
+      </div>
+      <button
+        type="button"
+        class="btn btn-default"
+        data-dismiss="modal"
+        (click)="modal.closeModal(signup)"
+      >
+        OK
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- First Signup Modal -->
+<div class="modal modal-animate" id="password" role="dialog" #password>
+  <div class="modal-dialog modal-md">
+    <div class="modal-content">
+      <div class="modal-head">
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          (click)="modal.closeModal(password)"
+        >
+          &times;
+        </button>
+      </div>
+      <div class="modal-body">
+
+        <h2>
+          Book Added Successfully
+        </h2>
+      </div>
+      <button
+        type="button"
+        class="btn btn-default"
+        data-dismiss="modal"
+        (click)="modal.closeModal(password)"
+      >
+        OK
+      </button>
+    </div>
+  </div>
 </div>
